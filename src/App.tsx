@@ -13,10 +13,8 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Pour GitHub Pages, change le basename avec le nom de ton repo
-// Exemple: basename="/gaia-sensoria" si ton repo s'appelle gaia-sensoria
-// Pour o2switch ou localhost, laisse basename="/"
-const basename = import.meta.env.PROD ? "/" : "/";
+// Pour GitHub Pages avec le repo naturo-sophro-harmony
+const basename = import.meta.env.PROD ? "/naturo-sophro-harmony" : "/";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
