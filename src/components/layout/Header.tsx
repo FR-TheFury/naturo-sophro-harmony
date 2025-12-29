@@ -23,20 +23,12 @@ const Header = () => {
       <nav className="container-custom mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center">
             <img 
               src={logo} 
               alt="Gaïa Sensoria - Sophrologie et Naturopathie" 
-              className="h-14 w-auto"
+              className="h-16 w-auto"
             />
-            <div className="hidden sm:block">
-              <span className="font-heading text-xl font-semibold text-primary">
-                Gaïa Sensoria
-              </span>
-              <p className="text-xs text-muted-foreground">
-                Sophrologie & Naturopathie
-              </p>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
