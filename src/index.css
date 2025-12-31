@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Gaïa Sensoria - Design System
-   Palette: Vert forêt, Vert sauge, Beige crème, Brun racine
+/* Gaïa Sensoria - Design System Premium
+   Palette: Vert forêt, Vert sauge, Beige crème, Brun racine, Or naturel
    All colors in HSL
 */
 
@@ -12,76 +12,81 @@
 @layer base {
   :root {
     /* Couleurs principales Gaïa Sensoria */
-    --background: 40 33% 95%; /* Beige crème clair */
-    --foreground: 120 18% 20%; /* Vert forêt foncé pour le texte */
+    --background: 40 33% 96%;
+    --foreground: 120 18% 15%;
 
-    --card: 40 30% 97%;
-    --card-foreground: 120 18% 20%;
+    --card: 40 30% 98%;
+    --card-foreground: 120 18% 15%;
 
-    --popover: 40 30% 97%;
-    --popover-foreground: 120 18% 20%;
+    --popover: 40 30% 98%;
+    --popover-foreground: 120 18% 15%;
 
     /* Vert forêt - couleur principale */
-    --primary: 120 20% 30%;
-    --primary-foreground: 40 33% 95%;
+    --primary: 120 22% 28%;
+    --primary-foreground: 40 33% 96%;
 
     /* Vert sauge - couleur secondaire */
-    --secondary: 90 12% 55%;
-    --secondary-foreground: 40 33% 95%;
+    --secondary: 90 15% 52%;
+    --secondary-foreground: 40 33% 96%;
 
     /* Beige crème - muted */
-    --muted: 40 25% 90%;
-    --muted-foreground: 120 10% 40%;
+    --muted: 40 25% 88%;
+    --muted-foreground: 120 10% 35%;
 
     /* Brun racine - accent */
-    --accent: 25 50% 28%;
-    --accent-foreground: 40 33% 95%;
+    --accent: 25 55% 30%;
+    --accent-foreground: 40 33% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 40 20% 85%;
-    --input: 40 20% 85%;
-    --ring: 120 20% 30%;
+    --border: 40 20% 82%;
+    --input: 40 20% 82%;
+    --ring: 120 22% 28%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     /* Couleurs additionnelles */
-    --sage: 90 12% 55%;
-    --forest: 120 20% 30%;
-    --cream: 40 33% 95%;
-    --earth: 25 50% 28%;
-    --leaf: 100 25% 45%;
+    --sage: 90 15% 52%;
+    --forest: 120 22% 28%;
+    --cream: 40 33% 96%;
+    --earth: 25 55% 30%;
+    --leaf: 100 30% 42%;
+    --gold: 38 70% 50%;
+    --gold-light: 40 60% 70%;
   }
 
   .dark {
-    --background: 120 15% 10%;
-    --foreground: 40 30% 90%;
+    --background: 120 18% 8%;
+    --foreground: 40 30% 92%;
 
-    --card: 120 15% 12%;
-    --card-foreground: 40 30% 90%;
+    --card: 120 18% 10%;
+    --card-foreground: 40 30% 92%;
 
-    --popover: 120 15% 12%;
-    --popover-foreground: 40 30% 90%;
+    --popover: 120 18% 10%;
+    --popover-foreground: 40 30% 92%;
 
-    --primary: 90 20% 60%;
-    --primary-foreground: 120 15% 10%;
+    --primary: 90 25% 55%;
+    --primary-foreground: 120 18% 8%;
 
-    --secondary: 120 15% 25%;
-    --secondary-foreground: 40 30% 90%;
+    --secondary: 120 18% 22%;
+    --secondary-foreground: 40 30% 92%;
 
-    --muted: 120 15% 18%;
-    --muted-foreground: 40 20% 65%;
+    --muted: 120 18% 15%;
+    --muted-foreground: 40 20% 60%;
 
-    --accent: 25 40% 45%;
-    --accent-foreground: 40 30% 90%;
+    --accent: 25 45% 50%;
+    --accent-foreground: 40 30% 92%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 120 15% 20%;
-    --input: 120 15% 20%;
-    --ring: 90 20% 60%;
+    --border: 120 18% 18%;
+    --input: 120 18% 18%;
+    --ring: 90 25% 55%;
+
+    --gold: 38 60% 55%;
+    --gold-light: 40 50% 65%;
   }
 }
 
@@ -90,75 +95,278 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading tracking-tight;
   }
 }
 
 @layer components {
+  /* Layout */
   .section-padding {
-    @apply py-16 md:py-24 px-4 md:px-8;
+    @apply py-20 md:py-28 px-4 md:px-8;
   }
 
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
 
+  /* Shapes & Organic Elements */
+  .organic-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  .organic-blob {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  .curve-divider {
+    position: relative;
+  }
+
+  .curve-divider::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: inherit;
+    clip-path: ellipse(55% 60% at 50% 100%);
+  }
+
+  /* Gradients */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-leaf to-secondary bg-clip-text text-transparent;
   }
 
+  .bg-gradient-organic {
+    background: linear-gradient(135deg, hsl(var(--cream)) 0%, hsl(var(--muted)) 50%, hsl(var(--cream)) 100%);
+  }
+
+  .bg-gradient-forest {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--forest)) 100%);
+  }
+
+  .bg-gradient-earth {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--earth)) 100%);
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+  }
+
+  /* Cards */
   .card-nature {
-    @apply bg-card rounded-lg shadow-lg border border-border/50 p-6 md:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply bg-card rounded-3xl border border-border/40 p-6 md:p-8 transition-all duration-500;
+    box-shadow: 0 4px 20px -5px hsl(var(--primary) / 0.08), 
+                0 8px 40px -15px hsl(var(--earth) / 0.12);
   }
 
+  .card-nature:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 8px 30px -5px hsl(var(--primary) / 0.15), 
+                0 20px 60px -20px hsl(var(--earth) / 0.2);
+  }
+
+  .card-floating {
+    @apply bg-card/90 backdrop-blur-md rounded-3xl border border-border/30 p-6 md:p-8;
+    box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.12);
+  }
+
+  .card-glass {
+    @apply bg-background/60 backdrop-blur-xl rounded-2xl border border-border/20;
+    box-shadow: 0 4px 30px hsl(var(--primary) / 0.05);
+  }
+
+  /* Buttons */
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+    @apply relative overflow-hidden bg-gradient-forest text-primary-foreground px-8 py-4 rounded-full font-medium transition-all duration-300;
+    box-shadow: 0 4px 15px -3px hsl(var(--primary) / 0.4);
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-700;
+  }
+
+  .btn-primary:hover::before {
+    @apply translate-x-full;
+  }
+
+  .btn-primary:hover {
+    @apply scale-105;
+    box-shadow: 0 8px 25px -5px hsl(var(--primary) / 0.5);
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-medium transition-all duration-300 hover:opacity-90;
+    @apply relative bg-card text-foreground px-8 py-4 rounded-full font-medium border-2 border-primary/30 transition-all duration-300;
   }
 
+  .btn-secondary:hover {
+    @apply border-primary bg-primary/5 scale-105;
+  }
+
+  .btn-accent {
+    @apply relative overflow-hidden bg-gradient-earth text-accent-foreground px-8 py-4 rounded-full font-medium transition-all duration-300;
+    box-shadow: 0 4px 15px -3px hsl(var(--accent) / 0.4);
+  }
+
+  .btn-accent:hover {
+    @apply scale-105;
+    box-shadow: 0 8px 25px -5px hsl(var(--accent) / 0.5);
+  }
+
+  /* Links */
   .link-underline {
-    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute w-full h-0.5 bottom-0 left-0 bg-gradient-to-r from-primary to-secondary origin-bottom-right scale-x-0 transition-transform duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Navigation */
+  .nav-indicator {
+    @apply absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-primary transition-all duration-300;
+  }
+
+  .nav-active .nav-indicator {
+    @apply w-6 h-1 rounded-full bg-gradient-gold;
+  }
+
+  /* Page Banner */
+  .page-banner {
+    @apply relative overflow-hidden py-20 md:py-28;
+  }
+
+  .page-banner-sophrologie {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.95) 0%, hsl(var(--forest) / 0.9) 100%);
+  }
+
+  .page-banner-naturopathie {
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.95) 0%, hsl(var(--earth) / 0.9) 100%);
+  }
+
+  .page-banner-tarifs {
+    background: linear-gradient(135deg, hsl(var(--gold) / 0.15) 0%, hsl(var(--cream)) 100%);
+  }
+
+  .page-banner-contact {
+    background: linear-gradient(135deg, hsl(var(--secondary) / 0.15) 0%, hsl(var(--cream)) 100%);
+  }
+
+  /* Decorative elements */
+  .floating-leaf {
+    @apply absolute opacity-10 pointer-events-none;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px 10px hsl(var(--primary) / 0.15);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 40px 10px hsl(var(--accent) / 0.15);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px 10px hsl(var(--gold) / 0.2);
+  }
+
+  /* Section dividers */
+  .wave-divider {
+    @apply absolute left-0 right-0 overflow-hidden;
+    height: 60px;
+  }
+
+  .wave-divider svg {
+    @apply w-full h-full;
+  }
+
+  /* Icon containers */
+  .icon-organic {
+    @apply relative flex items-center justify-center;
+  }
+
+  .icon-organic::before {
+    content: '';
+    @apply absolute inset-0 organic-blob bg-gradient-to-br from-primary/15 to-secondary/10;
+  }
+
+  /* Text styles */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-display {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
+  }
+
+  .text-title {
+    @apply font-heading text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  .text-subtitle {
+    @apply font-heading text-2xl md:text-3xl font-semibold;
   }
 }
 
 @layer utilities {
+  /* Animations */
   .animate-fade-in {
-    animation: fade-in 0.6s ease-out forwards;
+    animation: fade-in 0.8s ease-out forwards;
   }
 
   .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
+    animation: fade-in-up 0.8s ease-out forwards;
   }
 
   .animate-slide-in-left {
-    animation: slide-in-left 0.6s ease-out forwards;
+    animation: slide-in-left 0.8s ease-out forwards;
   }
 
   .animate-slide-in-right {
-    animation: slide-in-right 0.6s ease-out forwards;
+    animation: slide-in-right 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 4s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2.5s ease-in-out infinite;
   }
 
   @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   @keyframes fade-in-up {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -169,7 +377,7 @@
   @keyframes slide-in-left {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-40px);
     }
     to {
       opacity: 1;
@@ -180,11 +388,44 @@
   @keyframes slide-in-right {
     from {
       opacity: 0;
-      transform: translateX(30px);
+      transform: translateX(40px);
     }
     to {
       opacity: 1;
       transform: translateX(0);
     }
   }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Stagger animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
 }
