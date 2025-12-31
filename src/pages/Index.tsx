@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Leaf, Heart, Sparkles, Wind, Sun, Flower2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import NaturalElements from "@/components/NaturalElements";
+import FloatingLeaves from "@/components/FloatingLeaves";
 import heroImage from "@/assets/hero-nature.png";
 import meditationImage from "@/assets/meditation.png";
 import stonesImage from "@/assets/stones.jpg";
@@ -8,76 +10,87 @@ import stonesImage from "@/assets/stones.jpg";
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero Section - Asymmetric Layout */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background with organic shapes */}
+        {/* Background subtle texture */}
+        <div className="absolute inset-0 bg-gradient-to-br from-cream via-muted/30 to-cream" />
+        
+        {/* Natural Elements on the LEFT - SVG roots/branches */}
+        <NaturalElements className="z-10" />
+        
+        {/* Floating leaves decoration */}
+        <FloatingLeaves count={6} className="z-5" />
+
+        {/* Background image overlay - subtle on right */}
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            className="absolute right-0 top-0 w-1/2 h-full bg-cover bg-center bg-no-repeat opacity-15 hidden lg:block"
             style={{ backgroundImage: `url(${heroImage})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/85 to-background/60" />
-          
-          {/* Decorative organic shapes */}
-          <div className="absolute top-20 right-10 w-72 h-72 organic-blob bg-primary/5 blur-3xl animate-pulse-soft" />
-          <div className="absolute bottom-40 left-10 w-96 h-96 organic-shape bg-accent/5 blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 right-1/4 w-64 h-64 rounded-full bg-gold/5 blur-3xl animate-float" />
+          <div className="absolute inset-0 bg-gradient-to-l from-background/60 via-transparent to-transparent" />
         </div>
-        
-        <div className="container-custom mx-auto px-4 md:px-8 relative z-10 pt-24">
-          <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary mb-8 animate-fade-in-up">
-              <Flower2 size={18} className="animate-pulse-soft" />
-              <span className="text-sm font-medium tracking-wide">
-                Bien-être holistique & naturel
-              </span>
-            </div>
-            
-            <h1 className="text-display text-foreground mb-8 animate-fade-in-up stagger-1 text-balance">
-              Révélez votre{" "}
-              <span className="text-gradient">équilibre intérieur</span>{" "}
-              naturellement
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed animate-fade-in-up stagger-2 max-w-2xl">
-              Je suis <strong className="text-foreground">Cécilia Decottignies</strong>, 
-              sophrologue et naturopathe certifiée. Ensemble, retrouvons le chemin 
-              de votre mieux-être.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
-              <a href="#rdv" className="btn-primary inline-flex items-center justify-center gap-3 text-lg">
-                <Sparkles size={20} />
-                Prendre rendez-vous
-                <ArrowRight size={18} />
-              </a>
-              <Link 
-                to="/a-propos" 
-                className="btn-secondary inline-flex items-center justify-center gap-2 text-lg"
-              >
-                Découvrir mon approche
-              </Link>
-            </div>
 
-            {/* Floating stats */}
-            <div className="mt-16 flex flex-wrap gap-8 animate-fade-in-up stagger-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Heart className="text-primary" size={24} />
-                </div>
-                <div>
-                  <p className="text-2xl font-heading font-bold text-foreground">100%</p>
-                  <p className="text-sm text-muted-foreground">Personnalisé</p>
-                </div>
+        {/* Decorative organic shapes */}
+        <div className="absolute top-20 right-10 w-72 h-72 organic-blob bg-primary/5 blur-3xl animate-pulse-soft" />
+        <div className="absolute bottom-40 right-20 w-96 h-96 organic-shape bg-accent/5 blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }} />
+        
+        {/* Main content - positioned on the RIGHT */}
+        <div className="container-custom mx-auto px-4 md:px-8 relative z-20 pt-24">
+          <div className="flex justify-end">
+            <div className="w-full lg:w-[60%] lg:pl-8">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary mb-8 animate-fade-in-up">
+                <Flower2 size={18} className="animate-pulse-soft" />
+                <span className="text-sm font-medium tracking-wide">
+                  Bien-être holistique & naturel
+                </span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center">
-                  <Leaf className="text-accent" size={24} />
+              
+              <h1 className="text-display text-foreground mb-8 animate-fade-in-up stagger-1 text-balance">
+                Révélez votre{" "}
+                <span className="text-gradient">équilibre intérieur</span>{" "}
+                naturellement
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed animate-fade-in-up stagger-2 max-w-2xl">
+                Je suis <strong className="text-foreground">Cécilia Decottignies</strong>, 
+                sophrologue et naturopathe certifiée. Ensemble, retrouvons le chemin 
+                de votre mieux-être.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
+                <a href="#rdv" className="btn-primary inline-flex items-center justify-center gap-3 text-lg">
+                  <Sparkles size={20} />
+                  Prendre rendez-vous
+                  <ArrowRight size={18} />
+                </a>
+                <Link 
+                  to="/a-propos" 
+                  className="btn-secondary inline-flex items-center justify-center gap-2 text-lg"
+                >
+                  Découvrir mon approche
+                </Link>
+              </div>
+
+              {/* Floating stats */}
+              <div className="mt-16 flex flex-wrap gap-8 animate-fade-in-up stagger-4">
+                <div className="flex items-center gap-3 bg-card/60 backdrop-blur-sm rounded-2xl p-4 border border-border/30">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <Heart className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-heading font-bold text-foreground">100%</p>
+                    <p className="text-sm text-muted-foreground">Personnalisé</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-2xl font-heading font-bold text-foreground">Naturel</p>
-                  <p className="text-sm text-muted-foreground">Sans effets secondaires</p>
+                <div className="flex items-center gap-3 bg-card/60 backdrop-blur-sm rounded-2xl p-4 border border-border/30">
+                  <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center">
+                    <Leaf className="text-accent" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-heading font-bold text-foreground">Naturel</p>
+                    <p className="text-sm text-muted-foreground">Sans effets secondaires</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -85,15 +98,15 @@ const Index = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-20">
           <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex justify-center pt-2">
             <div className="w-1.5 h-3 rounded-full bg-primary/50 animate-pulse" />
           </div>
         </div>
       </section>
 
-      {/* Wave divider */}
-      <div className="relative h-24 -mt-24 z-20">
+      {/* Organic wave divider */}
+      <div className="relative h-24 -mt-24 z-30">
         <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 w-full">
           <path d="M0 50C240 80 480 100 720 90C960 80 1200 40 1440 50V100H0V50Z" fill="hsl(var(--muted))" fillOpacity="0.5"/>
         </svg>
@@ -101,12 +114,42 @@ const Index = () => {
 
       {/* Introduction Section */}
       <section className="section-padding bg-gradient-organic relative overflow-hidden">
+        {/* Continuing natural elements on left */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 pointer-events-none">
+          <svg viewBox="0 0 100 600" className="h-full w-full" preserveAspectRatio="xMinYMin slice">
+            <path
+              d="M40 0 Q 30 100, 50 200 Q 70 300, 30 400 Q 10 500, 50 600"
+              stroke="hsl(var(--forest))"
+              strokeWidth="4"
+              fill="none"
+              strokeOpacity="0.15"
+              strokeLinecap="round"
+            />
+            <path
+              d="M50 150 Q 70 130, 95 150"
+              stroke="hsl(var(--primary))"
+              strokeWidth="2"
+              fill="none"
+              strokeOpacity="0.2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M30 380 Q 50 360, 85 380"
+              stroke="hsl(var(--secondary))"
+              strokeWidth="2"
+              fill="none"
+              strokeOpacity="0.2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 organic-blob bg-primary/5 blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 organic-shape bg-accent/5 blur-3xl" />
+        <div className="absolute bottom-0 left-20 w-80 h-80 organic-shape bg-accent/5 blur-3xl" />
 
         <div className="container-custom mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-20 lg:ml-auto lg:mr-0 lg:text-left">
             <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               Mes approches
             </span>
@@ -228,6 +271,27 @@ const Index = () => {
       {/* CTA Section */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-forest" />
+        
+        {/* Nature elements on the side */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 pointer-events-none opacity-30">
+          <svg viewBox="0 0 80 400" className="h-full w-full" preserveAspectRatio="xMinYMin slice">
+            <path
+              d="M30 0 Q 20 100, 40 200 Q 60 300, 20 400"
+              stroke="hsl(var(--primary-foreground))"
+              strokeWidth="3"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M40 100 Q 60 80, 80 100"
+              stroke="hsl(var(--primary-foreground))"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-64 h-64 rounded-full border border-primary-foreground/30" />
           <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full border border-primary-foreground/20" />
@@ -268,6 +332,20 @@ const Index = () => {
 
       {/* Values Section */}
       <section className="section-padding relative overflow-hidden">
+        {/* Natural elements continuation */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 pointer-events-none">
+          <svg viewBox="0 0 60 500" className="h-full w-full" preserveAspectRatio="xMinYMin slice">
+            <path
+              d="M30 0 Q 20 125, 40 250 Q 60 375, 20 500"
+              stroke="hsl(var(--forest))"
+              strokeWidth="3"
+              fill="none"
+              strokeOpacity="0.12"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/5 to-transparent" />
         
         <div className="container-custom mx-auto px-4 md:px-8 relative z-10">
