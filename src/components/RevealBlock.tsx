@@ -8,7 +8,7 @@ interface RevealBlockProps {
   showBranch?: boolean;
   branchOffsetY?: string;
   className?: string;
-  immediate?: boolean; // For hero section - no scroll trigger
+  immediate?: boolean;
 }
 
 const RevealBlock = ({
@@ -26,7 +26,7 @@ const RevealBlock = ({
 
   useEffect(() => {
     if (immediate) {
-      const timer = setTimeout(() => setIsRevealed(true), delay + 800);
+      const timer = setTimeout(() => setIsRevealed(true), delay + 900);
       return () => clearTimeout(timer);
     }
 
@@ -39,8 +39,8 @@ const RevealBlock = ({
         });
       },
       {
-        threshold: 0.2,
-        rootMargin: "-50px 0px",
+        threshold: 0.15,
+        rootMargin: "-30px 0px",
       }
     );
 
@@ -59,10 +59,10 @@ const RevealBlock = ({
 
   return (
     <div ref={blockRef} className={`relative ${className}`}>
-      {/* Branch connector */}
+      {/* Branch connector - plus large pour accommoder les nouvelles branches */}
       {showBranch && (
         <div
-          className={`absolute ${isLTR ? "-left-32 md:-left-36 lg:-left-40" : "-right-32 md:-right-36 lg:-right-40"} w-32 md:w-36 lg:w-40 h-20`}
+          className={`absolute ${isLTR ? "-left-48 md:-left-56 lg:-left-64" : "-right-48 md:-right-56 lg:-right-64"} w-48 md:w-56 lg:w-64 h-24`}
           style={{ top: branchOffsetY, transform: "translateY(-50%)" }}
         >
           <BranchConnector
@@ -76,15 +76,15 @@ const RevealBlock = ({
 
       {/* Content block with reveal animation */}
       <div
-        className={`transition-all duration-700 ease-out ${
+        className={`transition-all duration-800 ease-out ${
           isRevealed
             ? "opacity-100 translate-x-0"
             : isLTR
-            ? "opacity-0 translate-x-8"
-            : "opacity-0 -translate-x-8"
+            ? "opacity-0 translate-x-10"
+            : "opacity-0 -translate-x-10"
         }`}
         style={{
-          transitionDelay: `${isRevealed ? 0 : delay + 300}ms`,
+          transitionDelay: `${isRevealed ? 0 : delay + 400}ms`,
         }}
       >
         {children}
