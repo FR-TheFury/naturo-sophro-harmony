@@ -28,7 +28,7 @@ const Index = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
             style={{ backgroundImage: `url(${heroImage})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/40 to-transparent" />
         </div>
 
         {/* Decorative blobs */}
