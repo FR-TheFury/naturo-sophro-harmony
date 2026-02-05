@@ -1,101 +1,43 @@
 
 
-## Refonte Complète : Un Véritable Arbre Majestueux
+## Corrections visuelles - Arbre de Vie
 
-### Le Probleme Actuel
-Le tronc actuel fait environ 20px de large dans un viewBox de 120px avec une largeur d'affichage de 96-128px. Le resultat : une fine brindille marron, pas un arbre.
+### Problème 1 : Décalage de la branche du Hero
+La branche du hero est positionnée trop bas (`branchOffsetY="30%"`) et se retrouve au niveau du titre au lieu d'être bien alignée.
 
-### La Solution : Un Arbre Imposant et Realiste
-
----
-
-### 1. Nouveau TreeOfLife.tsx - Un Vrai Tronc d'Arbre
-
-**Changements majeurs :**
-- Largeur du composant : **180-220px** au lieu de 96-128px
-- Tronc SVG : epaisseur de **60-80px** au lieu de 20px
-- Texture d'ecorce realiste avec :
-  - Fissures verticales profondes
-  - Noeuds du bois visibles
-  - Degrade marron realiste (brun fonce au centre, plus clair sur les bords)
-  - Effet 3D avec ombrage
-- **Racines imposantes** qui s'etalent vers le bas
-- **Branches principales** qui sortent du tronc a differentes hauteurs
-- Mousse et lichen sur le tronc
-- Forme irreguliere naturelle (pas parfaitement droite)
-
-**Structure SVG :**
-```
-Tronc : ~80px de large, courbes naturelles
-Ecorce : lignes de texture, noeuds, fissures
-Branches : 3-4 branches principales visibles sortant vers la droite
-Racines : reseau de racines epaisses en bas
-```
+**Solution** :
+- Modifier `src/pages/Index.tsx` ligne 40 : changer `branchOffsetY="30%"` → `branchOffsetY="50%"` ou supprimer la branche pour le Hero avec `showBranch={false}`
 
 ---
 
-### 2. Nouveau BranchConnector.tsx - De Vraies Branches
+### Problème 2 : Retirer les "épis" (mousse/lichen) sur le tronc
+Les petites ellipses vertes qui ressemblent à des feuilles/épis sur le tronc sont les éléments de mousse et lichen dans `TreeOfLife.tsx` (lignes 312-336).
 
-**Actuellement :** Une ligne fine de 10px
-**Nouveau design :**
-- Epaisseur de **15-25px** degressif
-- Forme en S naturelle avec courbes Bezier
-- Texture bois visible sur la branche
-- Sous-branches et brindilles
-- **Feuilles au bout** (plusieurs feuilles stylisees)
-- Petits bourgeons et ramifications
+**Solution** :
+- Supprimer tout le groupe `<g>` contenant "MOUSSE ET LICHEN SUR LE TRONC" (lignes 312-336) dans `src/components/TreeOfLife.tsx`
 
 ---
 
-### 3. Nouveau Hero avec Image de Fond Immersive
+### Problème 3 : La branche passe AU-DESSUS des cards
+La branche entre les deux cards (Sophrologie/Naturopathie) a un `z-index` trop élevé et passe par-dessus les cards au lieu de passer en-dessous.
 
-**Remplacement de l'image hero actuelle par :**
-- Grande image de fond (foret, nature luxuriante)
-- Overlay gradient pour lisibilite du texte
-- Contenu hero positionne avec espace pour l'arbre
-- Stats et badges redesignes avec style organique
+**Solution** :
+- Modifier `src/components/RevealBlock.tsx` : ajouter `z-index: -1` ou classe `-z-10` au conteneur de la branche pour qu'elle passe SOUS le contenu
 
 ---
 
-### 4. Ajustements Layout
+### Fichiers à modifier
 
-**Modifications :**
-- `.tree-content-area` : padding-left augmente a 180-220px
-- Hero : layout asymetrique avec l'arbre bien visible
-- Sections : espacement adapte pour les nouvelles branches
-
----
-
-### 5. Animations Enrichies
-
-**Nouvelles animations :**
-- Tronc qui "pousse" de haut en bas
-- Ecorce qui apparait progressivement
-- Branches qui se deploient avec un effet de croissance naturel
-- Feuilles qui apparaissent avec un leger tremblement
-- Parallax subtil au scroll
+| Fichier | Modification |
+|---------|--------------|
+| `src/components/TreeOfLife.tsx` | Supprimer le groupe mousse/lichen (lignes 312-336) |
+| `src/components/RevealBlock.tsx` | Ajouter `z-[-1]` au div de la branche |
+| `src/pages/Index.tsx` | Ajuster ou masquer la branche du Hero |
 
 ---
 
-### Implementation Technique
-
-| Fichier | Action |
-|---------|--------|
-| `src/components/TreeOfLife.tsx` | Refonte complete - tronc 3x plus large, texture realiste |
-| `src/components/BranchConnector.tsx` | Branches epaisses avec feuillage |
-| `src/components/RevealBlock.tsx` | Ajustements positionnement |
-| `src/pages/Index.tsx` | Hero redesigne, layout ajuste |
-| `src/index.css` | Nouvelles animations, classes utilitaires |
-| `tailwind.config.ts` | Animations supplementaires si necessaire |
-
----
-
-### Resultat Attendu
-
-Un vrai arbre de vie majestueux :
-- Tronc epais et texturee visible des l'arrivee
-- Branches qui "poussent" vers les blocs de contenu
-- Sensation d'etre dans une foret/nature
-- Design premium et unique qui marque les visiteurs
-- Coherence totale avec l'univers naturopathie/sophrologie
+### Résultat attendu
+- Tronc propre sans petites feuilles vertes
+- Branche du hero mieux positionnée ou cachée
+- Les branches passent EN-DESSOUS des cards et non au-dessus
 
