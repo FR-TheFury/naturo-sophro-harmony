@@ -476,8 +476,17 @@
     animation: reveal-block 0.7s ease-out forwards;
   }
 
-  /* Tree content layout helper */
+  /* Tree content layout helper - espace pour l'arbre majestueux */
   .tree-content-area {
-    @apply pl-24 md:pl-28 lg:pl-32;
+    @apply pl-44 md:pl-52 lg:pl-60;
+  }
+
+  /* Animation durée personnalisée */
+  .duration-600 {
+    transition-duration: 600ms;
+  }
+  
+  .duration-800 {
+    transition-duration: 800ms;
   }
 }
