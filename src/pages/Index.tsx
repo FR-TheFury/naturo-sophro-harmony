@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Leaf, Heart, Sparkles, Wind, Sun, Flower2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import TreeOfLife from "@/components/TreeOfLife";
+import TreeCanopy from "@/components/TreeCanopy";
 import RevealBlock from "@/components/RevealBlock";
 import FloatingLeaves from "@/components/FloatingLeaves";
 import heroImage from "@/assets/hero-nature.png";
@@ -13,6 +14,9 @@ const Index = () => {
     <Layout>
       {/* Tree of Life - Fixed trunk on left */}
       <TreeOfLife />
+      
+      {/* Canopy foliage at top */}
+      <TreeCanopy />
       
       {/* Floating leaves decoration */}
       <FloatingLeaves count={4} className="z-5" />
