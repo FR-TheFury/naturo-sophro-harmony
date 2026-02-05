@@ -62,7 +62,7 @@ const RevealBlock = ({
       {/* Branch connector - plus large pour accommoder les nouvelles branches */}
       {showBranch && (
         <div
-          className={`absolute ${isLTR ? "-left-48 md:-left-56 lg:-left-64" : "-right-48 md:-right-56 lg:-right-64"} w-48 md:w-56 lg:w-64 h-24`}
+          className={`absolute ${isLTR ? "-left-48 md:-left-56 lg:-left-64" : "-right-48 md:-right-56 lg:-right-64"} w-48 md:w-56 lg:w-64 h-24 z-[-1]`}
           style={{ top: branchOffsetY, transform: "translateY(-50%)" }}
         >
           <BranchConnector
