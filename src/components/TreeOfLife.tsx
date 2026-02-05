@@ -309,31 +309,6 @@ const TreeOfLife = ({ className = "" }: TreeOfLifeProps) => {
           <path d="M130 1185 Q 140 1200, 150 1220" stroke="hsl(25, 38%, 28%)" strokeWidth="8" fill="none" strokeLinecap="round"/>
         </g>
 
-        {/* ===== MOUSSE ET LICHEN SUR LE TRONC ===== */}
-        <g
-          style={{
-            opacity: isVisible ? 0.6 : 0,
-            transition: "opacity 2.5s ease-out 2s",
-          }}
-        >
-          {/* Plaques de mousse */}
-          <ellipse cx="95" cy="280" rx="12" ry="8" fill="hsl(120, 28%, 32%)"/>
-          <ellipse cx="100" cy="285" rx="8" ry="5" fill="hsl(120, 32%, 38%)"/>
-          
-          <ellipse cx="155" cy="480" rx="14" ry="9" fill="hsl(120, 25%, 30%)"/>
-          <ellipse cx="158" cy="485" rx="9" ry="6" fill="hsl(120, 30%, 36%)"/>
-          
-          <ellipse cx="90" cy="680" rx="11" ry="7" fill="hsl(120, 28%, 33%)"/>
-          <ellipse cx="94" cy="683" rx="7" ry="4" fill="hsl(120, 32%, 40%)"/>
-          
-          <ellipse cx="158" cy="880" rx="13" ry="8" fill="hsl(120, 26%, 31%)"/>
-          <ellipse cx="161" cy="884" rx="8" ry="5" fill="hsl(120, 30%, 37%)"/>
-
-          {/* Lichen */}
-          <circle cx="145" cy="220" r="5" fill="hsl(60, 15%, 55%)" opacity="0.5"/>
-          <circle cx="105" cy="580" r="4" fill="hsl(60, 12%, 50%)" opacity="0.4"/>
-          <circle cx="150" cy="780" r="6" fill="hsl(60, 15%, 52%)" opacity="0.45"/>
-        </g>
 
         {/* ===== REFLETS LUMINEUX ===== */}
         <g
