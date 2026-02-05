@@ -489,4 +489,21 @@
   .duration-800 {
     transition-duration: 800ms;
   }
+
+  /* Animation de balancement pour le feuillage canopée */
+  @keyframes leaf-sway {
+    0%, 100% {
+      transform: rotate(0deg) translateY(0);
+    }
+    25% {
+      transform: rotate(2deg) translateY(-1px);
+    }
+    75% {
+      transform: rotate(-2deg) translateY(1px);
+    }
+  }
+
+  .animate-leaf-sway {
+    animation: leaf-sway 4s ease-in-out infinite;
+  }
 }
