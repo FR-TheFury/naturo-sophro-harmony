@@ -1,132 +1,225 @@
 const TreeCanopy = () => {
-  // Configuration des feuilles avec différentes teintes et positions
-  const leaves = [
-    // Feuilles proches du tronc (gauche)
-    { x: 60, y: 15, scale: 1.2, rotation: -20, delay: 0, color: "forest" },
-    { x: 85, y: 8, scale: 0.9, rotation: 15, delay: 0.1, color: "primary" },
-    { x: 110, y: 20, scale: 1.1, rotation: -35, delay: 0.2, color: "sage" },
-    { x: 130, y: 5, scale: 0.8, rotation: 25, delay: 0.15, color: "forest" },
-    { x: 150, y: 18, scale: 1.0, rotation: -10, delay: 0.25, color: "leaf" },
-    
-    // Feuilles du milieu
-    { x: 175, y: 10, scale: 1.3, rotation: 30, delay: 0.3, color: "primary" },
-    { x: 200, y: 22, scale: 0.85, rotation: -25, delay: 0.35, color: "sage" },
-    { x: 225, y: 6, scale: 1.0, rotation: 40, delay: 0.4, color: "forest" },
-    { x: 250, y: 16, scale: 1.15, rotation: -15, delay: 0.45, color: "leaf" },
-    { x: 280, y: 12, scale: 0.9, rotation: 20, delay: 0.5, color: "primary" },
-    
-    // Feuilles qui s'éloignent
-    { x: 310, y: 20, scale: 0.75, rotation: -30, delay: 0.55, color: "sage" },
-    { x: 340, y: 8, scale: 0.95, rotation: 35, delay: 0.6, color: "forest" },
-    { x: 370, y: 18, scale: 0.7, rotation: -5, delay: 0.65, color: "leaf" },
-    { x: 400, y: 14, scale: 0.8, rotation: 15, delay: 0.7, color: "primary" },
-    { x: 430, y: 22, scale: 0.65, rotation: -20, delay: 0.75, color: "sage" },
-    
-    // Feuilles les plus éloignées (disparaissent progressivement)
-    { x: 460, y: 10, scale: 0.6, rotation: 25, delay: 0.8, color: "forest" },
-    { x: 490, y: 16, scale: 0.5, rotation: -15, delay: 0.85, color: "leaf" },
-    { x: 520, y: 12, scale: 0.45, rotation: 10, delay: 0.9, color: "primary" },
-  ];
-
-  const getLeafColor = (color: string) => {
-    switch (color) {
-      case "forest":
-        return "hsl(120 22% 28%)";
-      case "primary":
-        return "hsl(120 22% 32%)";
-      case "sage":
-        return "hsl(90 15% 45%)";
-      case "leaf":
-        return "hsl(100 30% 38%)";
-      default:
-        return "hsl(120 22% 28%)";
-    }
-  };
-
   return (
-    <div className="fixed top-0 left-0 w-full h-32 pointer-events-none z-30 overflow-hidden">
+    <div 
+      className="fixed top-0 left-0 pointer-events-none z-20 overflow-visible"
+      style={{ 
+        width: '650px', 
+        height: '160px',
+      }}
+    >
       <svg
-        viewBox="0 0 600 50"
+        viewBox="0 0 650 160"
         className="w-full h-full"
         preserveAspectRatio="xMinYMin slice"
-        style={{ minWidth: "800px" }}
       >
         <defs>
-          {/* Dégradé pour les feuilles */}
-          <linearGradient id="leafGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(120 22% 35%)" />
-            <stop offset="100%" stopColor="hsl(120 22% 25%)" />
-          </linearGradient>
-          <linearGradient id="leafGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(90 15% 52%)" />
-            <stop offset="100%" stopColor="hsl(90 15% 40%)" />
-          </linearGradient>
-          <linearGradient id="leafGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(100 30% 45%)" />
-            <stop offset="100%" stopColor="hsl(100 30% 32%)" />
+          {/* Dégradés pour les différentes couches de feuillage */}
+          <linearGradient id="canopyGradientBack" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(120 25% 18%)" />
+            <stop offset="100%" stopColor="hsl(120 20% 22%)" />
           </linearGradient>
           
-          {/* Filtre pour ombre douce */}
-          <filter id="leafShadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feDropShadow dx="1" dy="2" stdDeviation="2" floodColor="hsl(120 22% 15%)" floodOpacity="0.3" />
+          <linearGradient id="canopyGradientMid" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(120 22% 28%)" />
+            <stop offset="100%" stopColor="hsl(115 25% 32%)" />
+          </linearGradient>
+          
+          <linearGradient id="canopyGradientFront" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(100 28% 38%)" />
+            <stop offset="100%" stopColor="hsl(110 25% 42%)" />
+          </linearGradient>
+
+          <linearGradient id="canopyGradientHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(90 30% 48%)" />
+            <stop offset="100%" stopColor="hsl(95 25% 40%)" />
+          </linearGradient>
+
+          {/* Dégradé d'opacité horizontal - fondu vers la droite */}
+          <linearGradient id="fadeRight" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="white" stopOpacity="1" />
+            <stop offset="60%" stopColor="white" stopOpacity="0.9" />
+            <stop offset="80%" stopColor="white" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="white" stopOpacity="0" />
+          </linearGradient>
+
+          {/* Masque pour le fondu */}
+          <mask id="canopyMask">
+            <rect x="0" y="0" width="650" height="160" fill="url(#fadeRight)" />
+          </mask>
+
+          {/* Filtre pour profondeur sur couche arrière */}
+          <filter id="blurBack" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+          </filter>
+          
+          {/* Ombre subtile */}
+          <filter id="canopyShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="2" dy="4" stdDeviation="4" floodColor="hsl(120 30% 10%)" floodOpacity="0.4" />
           </filter>
         </defs>
 
-        {/* Groupe de feuilles */}
-        {leaves.map((leaf, index) => (
-          <g
-            key={index}
-            className="animate-leaf-sway"
-            style={{
-              transformOrigin: `${leaf.x}px ${leaf.y + 10}px`,
-              animationDelay: `${leaf.delay + index * 0.1}s`,
-              opacity: 1 - (index * 0.03),
-            }}
-          >
-            {/* Feuille - forme organique avec courbes Bezier */}
+        {/* Conteneur avec masque de fondu */}
+        <g mask="url(#canopyMask)">
+          
+          {/* COUCHE 1 - ARRIÈRE : Feuillage sombre et flou pour la profondeur */}
+          <g filter="url(#blurBack)" opacity="0.85">
+            {/* Grand cluster arrière gauche */}
             <path
-              d={`
-                M ${leaf.x} ${leaf.y + 10}
-                C ${leaf.x - 5 * leaf.scale} ${leaf.y + 5} 
-                  ${leaf.x - 8 * leaf.scale} ${leaf.y - 5 * leaf.scale} 
-                  ${leaf.x} ${leaf.y - 12 * leaf.scale}
-                C ${leaf.x + 8 * leaf.scale} ${leaf.y - 5 * leaf.scale} 
-                  ${leaf.x + 5 * leaf.scale} ${leaf.y + 5} 
-                  ${leaf.x} ${leaf.y + 10}
-              `}
-              fill={getLeafColor(leaf.color)}
-              filter="url(#leafShadow)"
-              transform={`rotate(${leaf.rotation} ${leaf.x} ${leaf.y})`}
-              className="transition-all duration-500"
+              d="M 80 90 
+                 C 60 70, 50 50, 70 30
+                 C 90 10, 130 5, 160 15
+                 C 190 25, 220 20, 250 30
+                 C 280 40, 300 35, 330 45
+                 C 360 55, 390 50, 420 60
+                 C 450 70, 470 65, 500 75
+                 C 520 82, 540 78, 560 85
+                 C 540 95, 510 100, 480 95
+                 C 450 90, 420 100, 380 95
+                 C 340 90, 300 105, 260 98
+                 C 220 91, 180 105, 140 95
+                 C 100 85, 80 95, 80 90
+                 Z"
+              fill="url(#canopyGradientBack)"
             />
             
-            {/* Nervure centrale de la feuille */}
-            <line
-              x1={leaf.x}
-              y1={leaf.y + 8}
-              x2={leaf.x}
-              y2={leaf.y - 8 * leaf.scale}
-              stroke="hsl(120 22% 20%)"
-              strokeWidth={0.5 * leaf.scale}
-              strokeOpacity={0.4}
-              transform={`rotate(${leaf.rotation} ${leaf.x} ${leaf.y})`}
+            {/* Extension haute arrière */}
+            <path
+              d="M 100 50
+                 C 85 35, 90 15, 120 10
+                 C 150 5, 180 0, 210 8
+                 C 240 16, 270 10, 300 18
+                 C 330 26, 350 20, 380 28
+                 C 360 40, 330 35, 300 42
+                 C 270 49, 240 44, 210 50
+                 C 180 56, 150 50, 120 55
+                 C 100 58, 100 50, 100 50
+                 Z"
+              fill="hsl(120 22% 20%)"
             />
           </g>
-        ))}
 
-        {/* Petites feuilles décoratives supplémentaires */}
-        {[...Array(8)].map((_, i) => (
-          <circle
-            key={`dot-${i}`}
-            cx={80 + i * 55}
-            cy={25 + (i % 3) * 8}
-            r={2 + (i % 2)}
-            fill="hsl(100 30% 42%)"
-            opacity={0.3 - i * 0.02}
-            className="animate-pulse-soft"
-            style={{ animationDelay: `${i * 0.2}s` }}
-          />
-        ))}
+          {/* COUCHE 2 - MÉDIANE : Feuillage principal avec volume */}
+          <g filter="url(#canopyShadow)" className="animate-leaf-sway" style={{ transformOrigin: '200px 60px' }}>
+            {/* Cluster principal médian */}
+            <path
+              d="M 90 85
+                 C 75 65, 65 45, 85 28
+                 C 105 11, 140 8, 175 18
+                 C 210 28, 245 22, 280 32
+                 C 315 42, 345 38, 380 48
+                 C 415 58, 440 55, 475 62
+                 C 500 67, 520 64, 545 70
+                 C 525 82, 495 88, 460 82
+                 C 425 76, 390 90, 350 84
+                 C 310 78, 275 92, 235 86
+                 C 195 80, 160 94, 125 88
+                 C 95 82, 90 85, 90 85
+                 Z"
+              fill="url(#canopyGradientMid)"
+            />
+
+            {/* Bosses de feuillage - ajoutent du volume */}
+            <ellipse cx="120" cy="35" rx="35" ry="28" fill="hsl(118 24% 30%)" />
+            <ellipse cx="180" cy="28" rx="40" ry="25" fill="hsl(115 22% 32%)" />
+            <ellipse cx="250" cy="35" rx="38" ry="26" fill="hsl(120 25% 28%)" />
+            <ellipse cx="320" cy="42" rx="35" ry="24" fill="hsl(118 23% 31%)" />
+            <ellipse cx="390" cy="52" rx="32" ry="22" fill="hsl(115 24% 33%)" />
+            <ellipse cx="455" cy="60" rx="28" ry="20" fill="hsl(120 22% 35%)" />
+            <ellipse cx="510" cy="68" rx="24" ry="18" fill="hsl(118 25% 36%)" />
+          </g>
+
+          {/* COUCHE 3 - AVANT : Détails et highlights */}
+          <g className="animate-leaf-sway" style={{ transformOrigin: '180px 50px', animationDelay: '0.5s' }}>
+            {/* Petits clusters de feuilles au premier plan */}
+            <path
+              d="M 95 70
+                 C 85 55, 80 40, 100 30
+                 C 120 20, 145 25, 160 35
+                 C 175 45, 165 60, 150 70
+                 C 135 80, 110 78, 95 70
+                 Z"
+              fill="url(#canopyGradientFront)"
+            />
+            
+            <path
+              d="M 155 55
+                 C 145 42, 150 28, 175 22
+                 C 200 16, 225 22, 240 35
+                 C 255 48, 245 62, 220 68
+                 C 195 74, 165 68, 155 55
+                 Z"
+              fill="url(#canopyGradientHighlight)"
+            />
+            
+            <path
+              d="M 230 48
+                 C 220 35, 230 22, 260 18
+                 C 290 14, 315 22, 330 38
+                 C 345 54, 330 68, 300 72
+                 C 270 76, 240 62, 230 48
+                 Z"
+              fill="url(#canopyGradientFront)"
+            />
+
+            <path
+              d="M 310 55
+                 C 300 44, 310 32, 340 28
+                 C 370 24, 395 32, 408 46
+                 C 421 60, 405 72, 375 75
+                 C 345 78, 320 66, 310 55
+                 Z"
+              fill="hsl(105 28% 40%)"
+            />
+
+            <path
+              d="M 385 62
+                 C 378 52, 388 42, 415 40
+                 C 442 38, 462 45, 472 56
+                 C 482 67, 468 78, 442 80
+                 C 416 82, 392 72, 385 62
+                 Z"
+              fill="url(#canopyGradientHighlight)"
+            />
+
+            <path
+              d="M 450 68
+                 C 445 60, 455 52, 478 50
+                 C 501 48, 518 54, 525 64
+                 C 532 74, 520 82, 498 84
+                 C 476 86, 455 76, 450 68
+                 Z"
+              fill="hsl(100 26% 44%)"
+            />
+          </g>
+
+          {/* COUCHE 4 - DÉTAILS : Petites feuilles individuelles pour texture */}
+          <g opacity="0.9" className="animate-leaf-sway" style={{ transformOrigin: '150px 40px', animationDelay: '0.8s' }}>
+            {/* Feuilles individuelles sur le dessus pour texture */}
+            <ellipse cx="100" cy="25" rx="12" ry="8" fill="hsl(95 32% 45%)" transform="rotate(-15 100 25)" />
+            <ellipse cx="135" cy="18" rx="10" ry="7" fill="hsl(100 30% 48%)" transform="rotate(20 135 18)" />
+            <ellipse cx="165" cy="22" rx="11" ry="7" fill="hsl(92 28% 42%)" transform="rotate(-10 165 22)" />
+            <ellipse cx="200" cy="16" rx="12" ry="8" fill="hsl(98 32% 46%)" transform="rotate(15 200 16)" />
+            <ellipse cx="235" cy="20" rx="10" ry="7" fill="hsl(105 28% 44%)" transform="rotate(-25 235 20)" />
+            <ellipse cx="275" cy="26" rx="11" ry="7" fill="hsl(95 30% 48%)" transform="rotate(10 275 26)" />
+            <ellipse cx="315" cy="32" rx="10" ry="6" fill="hsl(100 28% 45%)" transform="rotate(-20 315 32)" />
+            <ellipse cx="355" cy="38" rx="9" ry="6" fill="hsl(92 30% 50%)" transform="rotate(25 355 38)" />
+            <ellipse cx="395" cy="45" rx="8" ry="5" fill="hsl(98 28% 48%)" transform="rotate(-15 395 45)" />
+            <ellipse cx="435" cy="52" rx="8" ry="5" fill="hsl(100 32% 50%)" transform="rotate(18 435 52)" />
+            <ellipse cx="475" cy="58" rx="7" ry="5" fill="hsl(95 30% 52%)" transform="rotate(-12 475 58)" />
+            <ellipse cx="510" cy="64" rx="6" ry="4" fill="hsl(100 28% 54%)" transform="rotate(22 510 64)" />
+          </g>
+
+          {/* Points de lumière subtils */}
+          <g opacity="0.4">
+            <circle cx="110" cy="30" r="3" fill="hsl(90 40% 60%)" />
+            <circle cx="150" cy="22" r="2.5" fill="hsl(95 35% 58%)" />
+            <circle cx="195" cy="25" r="3" fill="hsl(92 38% 62%)" />
+            <circle cx="240" cy="30" r="2" fill="hsl(100 35% 60%)" />
+            <circle cx="290" cy="38" r="2.5" fill="hsl(95 40% 58%)" />
+            <circle cx="340" cy="45" r="2" fill="hsl(90 35% 62%)" />
+            <circle cx="390" cy="52" r="2" fill="hsl(98 38% 60%)" />
+          </g>
+        </g>
       </svg>
     </div>
   );
