@@ -22,21 +22,21 @@ const Index = () => {
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-cream via-muted/30 to-cream" />
         
-        {/* Background image overlay */}
+        {/* Background image overlay - full width */}
         <div className="absolute inset-0">
           <div 
-            className="absolute right-0 top-0 w-1/2 h-full bg-cover bg-center bg-no-repeat opacity-15 hidden lg:block"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
             style={{ backgroundImage: `url(${heroImage})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-background/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
         </div>
 
         {/* Decorative blobs */}
         <div className="absolute top-20 right-10 w-72 h-72 organic-blob bg-primary/5 blur-3xl animate-pulse-soft" />
         <div className="absolute bottom-40 right-20 w-96 h-96 organic-shape bg-accent/5 blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }} />
         
-        {/* Main content with tree offset */}
-        <div className="container-custom mx-auto px-4 md:px-8 relative z-20 pt-24 tree-content-area">
+        {/* Main content */}
+        <div className="container-custom mx-auto px-4 md:px-8 relative z-20 pt-24 pl-44 md:pl-52 lg:pl-60">
           <RevealBlock delay={500} immediate showBranch={false}>
             <div className="max-w-3xl">
               {/* Badge */}
