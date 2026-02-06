@@ -128,9 +128,9 @@ const Tarifs = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/50 to-background">
+      <section className="py-16 sm:py-20 md:py-32 bg-gradient-to-b from-muted/50 to-background">
         <div className="container-custom mx-auto px-4 md:px-8 text-center">
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
             Mes <span className="text-primary">tarifs</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -141,10 +141,10 @@ const Tarifs = () => {
       </section>
 
       {/* Sophrologie Tarifs */}
-      <section className="section-padding">
+      <section className="section-padding py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
               Sophrologie
             </h2>
             <p className="text-muted-foreground">
@@ -152,7 +152,7 @@ const Tarifs = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {sophroTarifs.map((tarif, index) => (
               <TarifCard key={index} tarif={tarif} accent="primary" />
             ))}
@@ -161,10 +161,10 @@ const Tarifs = () => {
       </section>
 
       {/* Naturopathie Tarifs */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding bg-muted/50 py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
               Naturopathie
             </h2>
             <p className="text-muted-foreground">
@@ -172,7 +172,7 @@ const Tarifs = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {naturoTarifs.map((tarif, index) => (
               <TarifCard key={index} tarif={tarif} accent="accent" />
             ))}
@@ -181,15 +181,15 @@ const Tarifs = () => {
       </section>
 
       {/* Additional Info */}
-      <section className="section-padding">
+      <section className="section-padding py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center">
               Informations pratiques
             </h2>
 
-            <div className="space-y-6">
-              <div className="bg-card border border-border rounded-lg p-6 flex gap-4">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-card border border-border rounded-lg p-4 sm:p-6 flex gap-3 sm:gap-4">
                 <Info className="text-primary flex-shrink-0 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Moyens de paiement</h3>
@@ -200,7 +200,7 @@ const Tarifs = () => {
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-lg p-6 flex gap-4">
+              <div className="bg-card border border-border rounded-lg p-4 sm:p-6 flex gap-3 sm:gap-4">
                 <Info className="text-primary flex-shrink-0 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Remboursement mutuelle</h3>
@@ -212,7 +212,7 @@ const Tarifs = () => {
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-lg p-6 flex gap-4">
+              <div className="bg-card border border-border rounded-lg p-4 sm:p-6 flex gap-3 sm:gap-4">
                 <Info className="text-primary flex-shrink-0 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Annulation</h3>
@@ -223,7 +223,7 @@ const Tarifs = () => {
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-lg p-6 flex gap-4">
+              <div className="bg-card border border-border rounded-lg p-4 sm:p-6 flex gap-3 sm:gap-4">
                 <Info className="text-primary flex-shrink-0 mt-1" size={24} />
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Déplacement à domicile</h3>
@@ -239,9 +239,9 @@ const Tarifs = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary text-primary-foreground">
+      <section className="section-padding bg-primary text-primary-foreground py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Des questions sur les tarifs ?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">

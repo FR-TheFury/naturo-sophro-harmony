@@ -45,7 +45,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="Gaïa Sensoria - Sophrologie et Naturopathie" 
-              className={`transition-all duration-300 ${isScrolled ? "h-12" : "h-14"} w-auto`}
+              className={`transition-all duration-300 ${isScrolled ? "h-10 sm:h-12" : "h-10 sm:h-12 md:h-14"} w-auto`}
             />
           </Link>
 

@@ -6,14 +6,14 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32">
+      <section className="relative py-16 sm:py-20 md:py-32">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="container-custom mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
               <span className="text-primary">Contact</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -25,12 +25,12 @@ const Contact = () => {
       </section>
 
       {/* Contact Info */}
-      <section className="section-padding">
+      <section className="section-padding py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Cards */}
             <div className="space-y-6">
-              <h2 className="font-heading text-3xl font-bold text-foreground mb-8">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">
                 Mes coordonnées
               </h2>
 
@@ -89,12 +89,12 @@ const Contact = () => {
 
             {/* RDV Card */}
             <div>
-              <div className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-lg p-8 md:p-12">
+              <div className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-lg p-6 sm:p-8 md:p-12">
                 <div className="w-16 h-16 bg-primary-foreground/20 rounded-full flex items-center justify-center mb-6">
                   <Calendar size={32} />
                 </div>
                 
-                <h2 className="font-heading text-3xl font-bold mb-4">
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold mb-4">
                   Prendre rendez-vous
                 </h2>
                 
@@ -133,16 +133,16 @@ const Contact = () => {
       </section>
 
       {/* FAQ */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding bg-muted/50 py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
               Questions fréquentes
             </h2>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-card border border-border rounded-lg p-6">
+          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
+            <div className="bg-card border border-border rounded-lg p-4 sm:p-6">
               <h3 className="font-semibold text-foreground mb-2">
                 Comment se déroule une première séance ?
               </h3>
@@ -153,7 +153,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-4 sm:p-6">
               <h3 className="font-semibold text-foreground mb-2">
                 Combien de séances sont nécessaires ?
               </h3>
@@ -164,7 +164,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-4 sm:p-6">
               <h3 className="font-semibold text-foreground mb-2">
                 Les séances sont-elles remboursées ?
               </h3>
@@ -175,7 +175,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-4 sm:p-6">
               <h3 className="font-semibold text-foreground mb-2">
                 Vous déplacez-vous à domicile ?
               </h3>
