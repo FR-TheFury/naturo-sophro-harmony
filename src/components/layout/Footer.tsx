@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="absolute bottom-20 left-10 w-48 h-48 organic-blob bg-primary-foreground/5 blur-3xl" />
 
         <div className="container-custom mx-auto px-4 md:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 mb-12">
             {/* Logo & Description */}
             <div className="lg:col-span-1">
               <Link to="/" className="inline-block mb-6 transition-transform duration-300 hover:scale-105">

@@ -38,7 +38,7 @@ const Index = () => {
         <div className="absolute bottom-40 right-20 w-96 h-96 organic-shape bg-accent/5 blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }} />
         
         {/* Main content */}
-        <div className="container-custom mx-auto px-4 md:px-8 relative z-20 pt-24 pl-44 md:pl-52 lg:pl-60">
+        <div className="container-custom mx-auto px-4 md:px-8 relative z-20 pt-24 pl-24 sm:pl-32 md:pl-48 lg:pl-56">
           <RevealBlock delay={500} immediate showBranch={false}>
             <div className="max-w-3xl">
               {/* Badge */}
@@ -49,13 +49,13 @@ const Index = () => {
                 </span>
               </div>
               
-              <h1 className="text-display text-foreground mb-8 text-balance">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight text-foreground mb-6 sm:mb-8 text-balance">
                 Révélez votre{" "}
                 <span className="text-gradient">équilibre intérieur</span>{" "}
                 naturellement
               </h1>
               
-              <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-10 leading-relaxed max-w-2xl">
                 Je suis <strong className="text-foreground">Cécilia Decottignies</strong>, 
                 sophrologue et naturopathe certifiée. Ensemble, retrouvons le chemin 
                 de votre mieux-être.
@@ -76,7 +76,7 @@ const Index = () => {
               </div>
 
               {/* Stats */}
-              <div className="mt-16 flex flex-wrap gap-8">
+              <div className="mt-10 sm:mt-16 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 md:gap-8">
                 <div className="flex items-center gap-3 bg-card/60 backdrop-blur-sm rounded-2xl p-4 border border-border/30">
                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
                     <Heart className="text-primary" size={24} />

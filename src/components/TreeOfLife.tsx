@@ -13,7 +13,7 @@ const TreeOfLife = ({ className = "" }: TreeOfLifeProps) => {
   }, []);
 
   return (
-    <div className={`fixed left-0 top-0 bottom-0 w-44 md:w-52 lg:w-60 pointer-events-none z-40 ${className}`}>
+    <div className={`fixed left-0 top-0 bottom-0 w-20 sm:w-28 md:w-44 lg:w-52 pointer-events-none z-40 ${className}`}>
       <svg
         viewBox="0 0 200 1200"
         fill="none"

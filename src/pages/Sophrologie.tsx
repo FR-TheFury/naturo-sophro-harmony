@@ -41,14 +41,14 @@ const Sophrologie = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32">
+      <section className="relative py-16 sm:py-20 md:py-32">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="container-custom mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
               La <span className="text-primary">Sophrologie</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -61,11 +61,11 @@ const Sophrologie = () => {
       </section>
 
       {/* What is Sophrologie */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding bg-muted/50 py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
                 Qu'est-ce que la sophrologie ?
               </h2>
               <div className="space-y-4 text-muted-foreground">
@@ -102,10 +102,10 @@ const Sophrologie = () => {
       </section>
 
       {/* Benefits */}
-      <section className="section-padding">
+      <section className="section-padding py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
               Les bienfaits de la sophrologie
             </h2>
             <p className="text-muted-foreground text-lg">
@@ -114,7 +114,7 @@ const Sophrologie = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               "Réduction du stress et de l'anxiété",
               "Amélioration du sommeil",
@@ -138,15 +138,15 @@ const Sophrologie = () => {
       </section>
 
       {/* Services */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding bg-muted/50 py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
               Mes accompagnements en sophrologie
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
               <div key={index} className="card-nature">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -165,9 +165,9 @@ const Sophrologie = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary text-primary-foreground">
+      <section className="section-padding bg-primary text-primary-foreground py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Envie de découvrir la sophrologie ?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">

@@ -15,14 +15,14 @@ const APropos = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32">
+      <section className="relative py-16 sm:py-20 md:py-32">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="container-custom mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
               À propos de <span className="text-primary">Cécilia</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -34,9 +34,9 @@ const APropos = () => {
       </section>
 
       {/* About Section */}
-      <section className="section-padding">
+      <section className="section-padding py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <div className="relative">
                 {/* Placeholder for photo */}
@@ -61,7 +61,7 @@ const APropos = () => {
             </div>
 
             <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
                 Mon parcours
               </h2>
               <div className="space-y-4 text-muted-foreground">
@@ -91,16 +91,16 @@ const APropos = () => {
       </section>
 
       {/* Philosophy */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding bg-muted/50 py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
               Ma philosophie
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card border border-border rounded-lg p-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="bg-card border border-border rounded-lg p-6 sm:p-8 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="text-primary" size={28} />
               </div>
@@ -113,7 +113,7 @@ const APropos = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-8 text-center">
+            <div className="bg-card border border-border rounded-lg p-6 sm:p-8 text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Leaf className="text-accent" size={28} />
               </div>
@@ -126,7 +126,7 @@ const APropos = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-8 text-center">
+            <div className="bg-card border border-border rounded-lg p-6 sm:p-8 text-center">
               <div className="w-16 h-16 bg-secondary/30 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="text-secondary" size={28} />
               </div>
@@ -143,11 +143,11 @@ const APropos = () => {
       </section>
 
       {/* Formations */}
-      <section className="section-padding">
+      <section className="section-padding py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
                 Mes formations
               </h2>
               <p className="text-muted-foreground mb-8">
@@ -170,9 +170,9 @@ const APropos = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-8 md:p-12">
+            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-6 sm:p-8 md:p-12">
               <blockquote className="text-center">
-                <p className="font-heading text-2xl md:text-3xl text-foreground italic mb-6">
+                <p className="font-heading text-xl sm:text-2xl md:text-3xl text-foreground italic mb-4 sm:mb-6">
                   "La nature fait bien les choses. Mon rôle est de vous aider 
                   à vous reconnecter à cette sagesse naturelle qui est en vous."
                 </p>
@@ -186,9 +186,9 @@ const APropos = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary text-primary-foreground">
+      <section className="section-padding bg-primary text-primary-foreground py-16 sm:py-20 md:py-28">
         <div className="container-custom mx-auto px-4 md:px-8 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Envie de me rencontrer ?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">

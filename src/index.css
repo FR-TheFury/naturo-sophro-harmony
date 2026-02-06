@@ -478,7 +478,7 @@
 
   /* Tree content layout helper - espace pour l'arbre majestueux */
   .tree-content-area {
-    @apply pl-44 md:pl-52 lg:pl-60;
+    @apply pl-24 sm:pl-32 md:pl-48 lg:pl-56;
   }
 
   /* Animation durée personnalisée */
